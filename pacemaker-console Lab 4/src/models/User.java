@@ -5,6 +5,8 @@ import com.google.common.base.Objects;
 
 public class User 
 {
+  static Long   counter = 0l;
+  public Long   id;
   public String firstName;
   public String lastName;
   public String email;
@@ -20,12 +22,14 @@ public class User
     this.lastName = lastName;
     this.email = email;
     this.password = password;
+    this.id        = counter++;
   }
   
   @Override 
   public String toString()
   {
-    return toStringHelper(this).addValue(firstName)
+    return toStringHelper(this).addValue(id)
+    		                   .addValue(firstName)
                                .addValue(lastName)
                                .addValue(password)
                                .addValue(email)                               
